@@ -28,15 +28,15 @@ basic.forever(function () {
         beccheggio += input.rotation(Rotation.Pitch)
         rollio += input.rotation(Rotation.Roll)
     }
-    bussola = bussola / 20
-    beccheggio = beccheggio / 20
-    bussola = beccheggio / 20
-    t = "      " + convertToText(beccheggio)
-    t1 = t.substr(t.length - 5 + 1, 5)
-    t = "      " + convertToText(rollio)
-    t2 = t.substr(t.length - 5 + 1, 5)
-    t = "      " + convertToText(bussola)
-    t3 = t.substr(t.length - 6 + 1, 6)
+    bussola = Math.round(bussola / 20)
+    beccheggio = Math.round(beccheggio / 20)
+    rollio = Math.round(rollio / 20)
+    t = "......" + convertToText(beccheggio)
+    t1 = t.substr(t.length - 4, 5)
+    t = "......" + convertToText(rollio)
+    t2 = t.substr(t.length - 4, 5)
+    t = "......" + convertToText(bussola)
+    t3 = t.substr(t.length - 4, 5)
     serial.writeLine("" + t1 + "," + t2 + "," + t3)
     basic.pause(200)
 })
